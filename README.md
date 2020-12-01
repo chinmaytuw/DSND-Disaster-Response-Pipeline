@@ -1,5 +1,9 @@
 # Disaster Response Pipeline Project
+
+## Introduction:
 - This project is part of the Udacity Data Science Nanodegree.
+- In this project, I have applied data engineering and web developement skills to analyze disaster data from [Figure Eight](https://www.figure-eight.com/) to build a model for an API that classifies disaster messages.
+- The intended usage of the app is for an emergency worker to input a new message and get classification results in several categories. The web app will also display visualizations of the data. 
 
 ## Instructions:
 1. Run the following commands in the project's root directory to set up your database and model.
