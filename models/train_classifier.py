@@ -72,6 +72,12 @@ def tokenize(text):
 def build_model():
     ''' 
     Function that builds the model and returns cross GridSearchCV object
+
+    Args:
+        None
+
+    Returns:
+        cv: GridSearchCV object
     '''
     pipeline  = Pipeline([
         ('vect', CountVectorizer(tokenizer=tokenize)),
