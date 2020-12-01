@@ -22,19 +22,19 @@ from sklearn.svm import SVC, LinearSVC
 from sklearn.multiclass import OneVsRestClassifier
 
 
-def load_data(database_filepath):
+def load_data(database_path):
     ''' 
     Script to load the data 
 
     Args:
-    	database_filepath: path of the database file
+    	database_path: path of the database file
 
     Returns:
     	X: Feature message
     	Y: Target Values
     	category_names: names of categories available in tbe data
     '''
-    engine = create_engine('sqlite:///'+database_filepath)
+    engine = create_engine('sqlite:///'+database_path)
     df = pd.read_sql_table('disaster', engine)
     X = df['message']
     Y = df[['related', 'request', 'offer',
@@ -125,9 +125,9 @@ def save_model(model, model_path):
 
 def main():
     if len(sys.argv) == 3:
-        database_filepath, model_path = sys.argv[1:]
-        print('Loading data...\n    DATABASE: {}'.format(database_filepath))
-        X, Y, category_names = load_data(database_filepath)
+        database_path, model_path = sys.argv[1:]
+        print('Loading data...\n    DATABASE: {}'.format(database_path))
+        X, Y, category_names = load_data(database_path)
         X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2)
         
         print('Building model...')
