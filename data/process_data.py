@@ -66,17 +66,17 @@ def clean_data(df):
    
 
 
-def save_data(df, database_filename):
+def save_data(df, database_name):
     ''' 
     Function to save the data in a database file
     Args:
         df: Dataframe to save
-        database_filename: name of database file
+        database_name: name of database file
 
     Returns:
         None
     '''
-    engine = create_engine('sqlite:///'+ database_filename)
+    engine = create_engine('sqlite:///'+ database_name)
     df.to_sql('disaster', engine, index=False)
 
 
