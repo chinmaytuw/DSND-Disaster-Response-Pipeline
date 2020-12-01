@@ -2,20 +2,20 @@ import sys
 import pandas as pd
 from sqlalchemy import create_engine
 
-def load_data(messages_filepath, categories_filepath):
+def load_data(messages_path, categories_path):
     ''' 
     Script to load data for messages, categories 
 
     Args:
-        messages_filepath = string with filepath for messages file
-        categories_filepath = string with filepath for categories file
+        messages_path = string with filepath for messages file
+        categories_path = string with filepath for categories file
 
     Returns:
         df: merged dataframe consisting of messages and categories
     '''
     # read messages and categories data
-    messages =  pd.read_csv(messages_filepath)
-    categories =  pd.read_csv(categories_filepath)
+    messages =  pd.read_csv(messages_path)
+    categories =  pd.read_csv(categories_path)
 
     # merge the datasets
     df = pd.merge(messages,categories, on = 'id')
@@ -83,12 +83,12 @@ def save_data(df, database_filename):
 def main():
     if len(sys.argv) == 4:
 
-        messages_filepath, categories_filepath, database_filepath = sys.argv[1:]
+        messages_path, categories_path, database_filepath = sys.argv[1:]
 
         # Steps for Loading data
         print('Loading data...\n    MESSAGES: {}\n    CATEGORIES: {}'
-              .format(messages_filepath, categories_filepath))
-        df = load_data(messages_filepath, categories_filepath)
+              .format(messages_path, categories_path))
+        df = load_data(messages_path, categories_path)
 
 
         # Steps for Cleaning data

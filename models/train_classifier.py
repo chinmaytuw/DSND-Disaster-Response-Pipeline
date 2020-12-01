@@ -112,20 +112,20 @@ def evaluate_model(model, X_test, Y_test, category_names):
               ,'\n', classification_report(Y_test.values[:,i],Y_pred[:,i])
               ,'\n accuracy:', accuracy_score(Y_test.values[:, i], Y_pred[:, i]))
 
-def save_model(model, model_filepath):
+def save_model(model, model_path):
     ''' 
     Function to export model as pickle object
 
     Args:
     	model: model object
-    	model_filepath: path for model
+    	model_path: path for model
     '''
-    pickle.dump(model, open(model_filepath, 'wb'))   
+    pickle.dump(model, open(model_path, 'wb'))   
 
 
 def main():
     if len(sys.argv) == 3:
-        database_filepath, model_filepath = sys.argv[1:]
+        database_filepath, model_path = sys.argv[1:]
         print('Loading data...\n    DATABASE: {}'.format(database_filepath))
         X, Y, category_names = load_data(database_filepath)
         X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2)
@@ -139,8 +139,8 @@ def main():
         print('Evaluating model...')
         evaluate_model(model, X_test, Y_test, category_names)
 
-        print('Saving model...\n    MODEL: {}'.format(model_filepath))
-        save_model(model, model_filepath)
+        print('Saving model...\n    MODEL: {}'.format(model_path))
+        save_model(model, model_path)
 
         print('Trained model saved!')
 
