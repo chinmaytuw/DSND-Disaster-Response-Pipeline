@@ -24,7 +24,7 @@ from sklearn.multiclass import OneVsRestClassifier
 
 def load_data(database_filepath):
     ''' 
-    Script to load the data
+    Script to load the data 
 
     Args:
     	database_filepath: path of the database file
